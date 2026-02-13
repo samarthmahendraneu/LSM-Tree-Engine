@@ -1,4 +1,4 @@
-### Current Status -> Defined Entry,Key, Value
+### Current Status -> Defined Types ( Internal Key, magic functions for comparions) type- Entry 
 
 
 ### high level flow 
