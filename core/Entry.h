@@ -4,28 +4,27 @@
 
 #ifndef ENTRY_H
 #define ENTRY_H
-#include "key.h"
 #include "value.h"
+#include "internal_key.h"
 
 
 class Entry {
 
-    Key key;
+    InternalKey ikey;
     Value value;
-    uint64_t seq{};
-    // soft delete feature using tombstone
-    bool tombstone{};
 
 public:
 
     Entry(Key key,
-      Value value,
-      uint64_t seq,
-      bool tombstone)
-    : key(std::move(key)),
-      value(std::move(value)),
-      seq(seq),
-      tombstone(tombstone) {}
+          Value value,
+          uint64_t seq,
+          bool tombstone)
+        : ikey(
+              std::move(key),
+              seq,
+              tombstone ? ValueType::DELETE : ValueType::PUT
+          ),
+          value(std::move(value)) {}
 
 
     // Declare friend for access to private members

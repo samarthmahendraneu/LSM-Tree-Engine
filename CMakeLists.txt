@@ -9,4 +9,8 @@ add_executable(lsm_engine
         main.cpp
         core/Entry.cpp
         core/Entry.h
+        core/value_type.h
+        core/internal_key.cpp
+        core/internal_key.h
+        core/internal_key_comparator.h
 )
