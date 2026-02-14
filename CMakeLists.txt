@@ -15,4 +15,6 @@ add_executable(lsm_engine
         core/types/internal_key_comparator.h
         core/memtable/MemTable.cpp
         core/memtable/MemTable.h
+        core/wal/Wal.cpp
+        core/wal/Wal.h
 )

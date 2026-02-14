@@ -45,6 +45,15 @@ std::optional<Value> MemTable::get(const Key& user_key) const {
     return it->second;
 }
 
+void MemTable::apply(const Entry& entry) {
+    if (entry.ikey.type() == ValueType::PUT) {
+        put(entry.ikey.user_key(), entry.value, entry.ikey.sequence());
+    } else {
+        remove(entry.ikey.user_key(), entry.ikey.sequence());
+    }
+}
+
+
 size_t MemTable::size() const {
     return table_.size();
 }
