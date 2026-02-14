@@ -7,10 +7,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(lsm_engine
         main.cpp
         main.cpp
-        core/Entry.cpp
-        core/Entry.h
-        core/value_type.h
-        core/internal_key.cpp
-        core/internal_key.h
-        core/internal_key_comparator.h
+        core/types/Entry.cpp
+        core/types/Entry.h
+        core/types/value_type.h
+        core/types/internal_key.cpp
+        core/types/internal_key.h
+        core/types/internal_key_comparator.h
+        core/memtable/MemTable.cpp
+        core/memtable/MemTable.h
 )
