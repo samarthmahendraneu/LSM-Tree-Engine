@@ -1,6 +1,4 @@
-### Current Status -> Defined Types ( Internal Key, magic functions for comparions) type- Entry 
-
-
+### Current Status -> Memtable
 ### high level flow 
 
 Client API
