@@ -1,4 +1,8 @@
-### Current Status -> Memtable
+### Current Status ->
+✔ Key / Value abstractions
+✔ InternalKey (versioning + ordering)
+✔ Entry
+✔ MemTable (ordered structure + lookup semantics)
 ### high level flow 
 
 Client API
