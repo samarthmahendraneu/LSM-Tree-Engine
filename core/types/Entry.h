@@ -10,10 +10,9 @@
 
 class Entry {
 
+public:
     InternalKey ikey;
     Value value;
-
-public:
 
     Entry(Key key,
           Value value,

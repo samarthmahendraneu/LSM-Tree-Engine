@@ -19,7 +19,7 @@ public:
     void put(Key key, Value value, uint64_t seq);
     void remove(Key key, uint64_t seq);
     std::optional<Value> get(const Key& key) const;
-
+    void apply(const Entry& entry);
     size_t size() const;
 
 private:
