@@ -18,10 +18,11 @@ public:
 
     explicit DB(const std::string& wal_path = "db.wal");
 
-    bool put(Key& key, Value& value);
-    bool remove(Key& key);
+    bool put(const Key &key, const Value &value);
+    bool remove(const Key &key);
     [[nodiscard]] std::optional<Value> get(const Key& key) const;
     [[nodiscard]] size_t size() const;
+    ~DB() = default;
 
 private:
     void recover();

@@ -5,58 +5,43 @@
 
 #include <iostream>
 
-int main() {
-    // ---- OPEN WAL ----
-    Wal wal("test.wal");
+#include "core/db/DB.h"
 
-    // ---- MEMTABLE ----
-    MemTable mem;
+int main() {
+
+    DB db("test.wal");
+
+
 
     // ---- WRITE PATH (append to WAL + apply to memtable) ----
 
-    Entry e1(Key("A"), Value("10"), 1, false);
-    wal.append(e1);
-    mem.apply(e1);
+    db.put(Key("A"), Value("10"));
+    db.put(Key("A"), Value("20"));
 
-    Entry e2(Key("A"), Value("20"), 2, false);
-    wal.append(e2);
-    mem.apply(e2);
-
-    Entry e3(Key("A"), Value(""), 3, true);
-    wal.append(e3);
-    mem.apply(e3);
-
-    Entry e4(Key("B"), Value("99"), 4, false);
-    wal.append(e4);
-    mem.apply(e4);
-
+    db.remove(Key("A"));
+    db.put(Key("B"), Value("99"));
     std::cout << "=== After writes ===\n";
 
-    auto a = mem.get(Key("A"));
+    auto a = db.get(Key("A"));
     if (a.has_value())
         std::cout << "A = " << a->bytes() << "\n";
     else
         std::cout << "A NOT FOUND\n";
 
-    auto b = mem.get(Key("B"));
+    auto b = db.get(Key("B"));
     if (b.has_value())
         std::cout << "B = " << b->bytes() << "\n";
     else
         std::cout << "B NOT FOUND\n";
 
-    std::cout << "MemTable size = " << mem.size() << "\n\n";
+    std::cout << "MemTable size = " << db.size() << "\n\n";
 
 
 
     // restart
     std::cout << "=== Simulating restart ===\n";
 
-    MemTable recovered;
-
-    auto entries = wal.replay();
-    for (const auto& e : entries) {
-        recovered.apply(e);
-    }
+    DB recovered("test.wal");
 
     auto a2 = recovered.get(Key("A"));
     if (a2.has_value())
