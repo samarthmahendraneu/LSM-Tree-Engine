@@ -17,4 +17,6 @@ add_executable(lsm_engine
         core/memtable/MemTable.h
         core/wal/Wal.cpp
         core/wal/Wal.h
+        core/db/DB.cpp
+        core/db/DB.h
 )
