@@ -7,6 +7,7 @@
 
 
 #include "../memtable/MemTable.h"
+#include "../memtable/MemTableFactory.h"
 #include "../types/key.h"
 #include "../types/value.h"
 #include "../wal/Wal.h"
@@ -27,7 +28,7 @@ public:
 private:
     void recover();
 
-    MemTable memtable_;
+    std::unique_ptr<IMemTable> memtable_;
     Wal wal_;
     uint64_t next_seq_{1};
 };
