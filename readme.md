@@ -10,6 +10,7 @@ The engine now has a fully functional **durable write path** and in-memory state
 ✔ WAL (binary log with replay for recovery)  
 ✔ MemTable (ordered structure with version-aware lookup)  
 ✔ DB facade (orchestrates WAL, MemTable, and recovery)
+✔ Skip List MemTable
 
 ---
 
