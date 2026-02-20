@@ -1,7 +1,7 @@
 #include "core/memtable/MemTable.h"
 #include "core/types/key.h"
 #include "core/types/value.h"
-#include "core/wal/WAL.h"
+#include "core/wal/Wal.h"
 
 #include <iostream>
 

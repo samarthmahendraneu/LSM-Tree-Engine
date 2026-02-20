@@ -3,8 +3,6 @@
 //
 
 #include "MemTable.h"
-
-#include "memtable.h"
 #include <limits>
 
 

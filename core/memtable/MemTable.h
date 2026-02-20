@@ -13,14 +13,15 @@
 #include <optional>
 #include "../types/Entry.h"
 #include "../types/internal_key_comparator.h"
+#include "IMemTable.h"
 
-class MemTable {
+class MemTable : public IMemTable{
 public:
-    void put(Key key, Value value, uint64_t seq);
-    void remove(Key key, uint64_t seq);
-    std::optional<Value> get(const Key& key) const;
-    void apply(const Entry& entry);
-    size_t size() const;
+    void put(Key key, Value value, uint64_t seq) override;
+    void remove(Key key, uint64_t seq) override;
+    [[nodiscard]] std::optional<Value> get(const Key& key) const override;
+    void apply(const Entry& entry) override;
+    [[nodiscard]] size_t size() const override;
 
 private:
     std::map<InternalKey, Value, InternalKeyComparator> table_;
