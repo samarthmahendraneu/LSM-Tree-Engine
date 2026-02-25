@@ -12,7 +12,8 @@ The engine now has a fully functional **durable write path** and in-memory state
 ✔ DB facade (orchestrates WAL, MemTable, and recovery)
 ✔ Skip List MemTable
 
----
+<img width="1852" height="1390" alt="image" src="https://github.com/user-attachments/assets/7ff64c23-64d8-4a09-b507-20d8436b29d4" />
+
 
 ##  High-Level Architecture
 
