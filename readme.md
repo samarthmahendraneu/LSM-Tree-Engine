@@ -13,7 +13,7 @@ The engine now has a fully functional **durable write path** and in-memory state
 ✔ Skip List MemTable
 
 <img width="1852" height="1390" alt="image" src="https://github.com/user-attachments/assets/7ff64c23-64d8-4a09-b507-20d8436b29d4" />
-
+https://excalidraw.com/#json=cMdxqIx-D_hEHWb0OmBUU,kTYrAQ0UoHDLdcF09id1UQ
 
 ##  High-Level Architecture
 
