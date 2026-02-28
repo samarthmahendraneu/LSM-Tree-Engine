@@ -80,3 +80,6 @@ The engine follows a classic **LSM-tree architecture**:
 - SSTable file format
 - Block index + Bloom filters
 - Compaction scheduler
+
+
+@Samarth Mahendra
